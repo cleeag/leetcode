@@ -7,6 +7,7 @@ def exist(board, word):
         print(i, j, word[:word_i], word_i)
         if word_i == len(word) - 1:
             if board[i][j] == word[word_i]:
+                print('got it')
                 return True
             else:
                 return False
@@ -19,14 +20,15 @@ def exist(board, word):
                 a = b = c = d = False
                 if i - 1 >= 0 and been[i - 1][j] == 0:
                     a = rec(board, word, i - 1, j, word_i + 1, [x[:] for x in been])
-                if i + 1 < len(board) and been[i + 1][j] == 0:
-                    b = rec(board, word, i + 1, j, word_i + 1, [x[:] for x in been])
-                if j - 1 >= 0 and been[i][j - 1] == 0:
-                    c = rec(board, word, i, j - 1, word_i + 1, [x[:] for x in been])
-                if j + 1 < len(board[0]) and been[i][j + 1] == 0:
-                    d = rec(board, word, i, j + 1, word_i + 1, [x[:] for x in been])
+                if not a and i + 1 < len(board) and been[i + 1][j] == 0:
+                    a = rec(board, word, i + 1, j, word_i + 1, [x[:] for x in been])
+                if not a and j - 1 >= 0 and been[i][j - 1] == 0:
+                    a = rec(board, word, i, j - 1, word_i + 1, [x[:] for x in been])
+                if not a and j + 1 < len(board[0]) and been[i][j + 1] == 0:
+                    a = rec(board, word, i, j + 1, word_i + 1, [x[:] for x in been])
 
-            return a or b or c or d
+            return a
+            # return a or b or c or d
 
     ans = False
     for i in range(len(board)):
