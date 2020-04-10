@@ -15,7 +15,6 @@ def removeDuplicates(nums):
             cur_count = 1
             i += 1
         elif cur == nums[i] and cur_count == 2:
-            # nums = nums[:i] + nums[i + 1:]
             nums.pop(i)
         elif cur == nums[i] and cur_count < 2:
             cur_count += 1
