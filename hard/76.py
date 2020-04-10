@@ -31,7 +31,7 @@ def minWindow(s, t):
                 if window_len > tmp2:
                     window_len = tmp2
                     flat = count_flat.copy()
-        # print(i, c, count, flat, s[min(flat):max(flat) + 1], window_len)
+        print(i, c, count, flat, s[min(flat):max(flat) + 1], window_len)
 
     return s[min(flat):max(flat) + 1] if success else ''
 
