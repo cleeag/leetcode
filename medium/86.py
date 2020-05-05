@@ -1,7 +1,7 @@
 import os
 from os.path import join
 
-from src.list_node import ListNode
+from src.nodes import ListNode
 
 def partition(head: ListNode, x):
     if head is None: return
